@@ -25,17 +25,23 @@
             </div>
             <div class="col-4 offset-1">
                 <h1>Информация</h1>
+
+                {% for info in all_info %}
+
                 <div class="alert alert-info">
                     <div class="row">
                         <div class="col-9">
-                            <b>Город:</b> {{}}<br>
-                            <b>Теипература:</b> {{}}<sup>o</sup>
+                            <b>Город:</b> {{ info.name }}<br>
+                            <b>Температура:</b> {{ info.temp }}<sup>o</sup>
                         </div>
                         <div class="col-2 offset-1">
-                            <img src="" alt="weather_icon">
+                            <img src="https://yastatic.net/weather/i/icons/blueye/color/svg/{{ info.icon }}.svg" alt="weather_icon">
                         </div>
                     </div>
                 </div>
+
+                {% endfor %}
+
             </div>
         </div>
     </div>

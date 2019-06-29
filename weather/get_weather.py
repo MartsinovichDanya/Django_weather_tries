@@ -15,4 +15,9 @@ def get_weather(city_name):
     weather_data = requests.get(WEATHER_SEARCH_URL,
                                 params=weather_search_params,
                                 headers={'X-Yandex-API-Key': '1383a9b9-d016-433e-9b08-588fbe8368ab'}).json()
-    return weather_data['fact']['temp'], weather_data['fact']['feels_like'], weather_data['fact']['icon']
+    return {
+            'name': city_name,
+            'temp': weather_data['fact']['temp'],
+            'ftemp': weather_data['fact']['feels_like'],
+            'icon': weather_data['fact']['icon']
+            }
